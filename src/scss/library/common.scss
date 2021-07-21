@@ -1,0 +1,52 @@
+html, body {
+    background: $canvasBackground;
+}
+
+body {
+    font-family: getFont();
+    font-size: $defaultFontSize;
+    line-height: $defaultLineHeight;
+    width: 100%;
+    margin: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    outline: none;
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: inside; 
+    text-align: left;
+    padding-left: 15px;
+}
+
+ol {
+    list-style: decimal;
+    list-style-position: inside; 
+    text-align: left;
+    padding-left: 15px;
+}
+
+.section {
+    padding: 25px 0;
+}
+
+.section__container {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+
+    &--space-between {
+        justify-content: space-between;
+    }
+}

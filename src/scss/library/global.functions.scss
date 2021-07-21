@@ -1,0 +1,26 @@
+@function getColor($colorIndex : 1, $schemeIndex : $activeColorScheme){
+    @if($schemeIndex > length($colorScheme)){
+        $schemeIndex : 1;
+    }
+    $scheme : nth($colorScheme, $schemeIndex);
+    @if($colorIndex > length($scheme)){
+        $colorIndex : 1;
+    }
+    @return nth($scheme, $colorIndex);
+}
+
+@function getFont($fontIndex : 1, $schemeIndex : $activeFontScheme){
+    @if($schemeIndex > length($fontScheme)){
+        $schemeIndex : 1;
+    }
+    $scheme : nth($fontScheme, $schemeIndex);
+    @if($fontIndex > length($scheme)){
+        $fontIndex : 1;
+    }
+    $font : nth($scheme, $fontIndex);
+    @return $font,$fallbackFont;
+}
+
+@function getEqualColumnWidthPercentage($columnSize, $totalColumns : 3){
+    @return unquote(((100 / $totalColumns)*$columnSize) + '%');
+}

@@ -1,0 +1,31 @@
+#font-preloader{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    span{
+        line-height: 0;
+        font-size: 0;
+    }
+    .font-fam-1{
+        font-family: getFont(1);
+    }
+    .font-fam-2{
+        font-family: getFont(2);
+    }
+    .font-fam-3{
+        font-family: getFont(3);
+    }
+}
+
+html{
+    margin-top: 0px !important;
+}
+
+#wpadminbar{
+    opacity: 0.75;
+
+    @media(max-width: $bp_tabletLandscape){
+        display: none !important;
+    }
+}

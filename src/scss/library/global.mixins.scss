@@ -1,0 +1,109 @@
+@mixin typography($family : getFont(), $size : inherit, $lineHeight : inherit, $weight : inherit, $color : inherit) {
+    font-family : $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+@mixin shadow($value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transitionProp($prop, $values...) {
+    -moz-#{$prop}: $values;
+    -ms-#{$prop}: $values;
+    -o-#{$prop}: $values;
+    -webkit-#{$prop}: $values;
+    #{$prop}: $values;
+}
+
+@mixin linearGradient($deg, $primary, $secondary){
+    background: $primary;
+    background: linear-gradient($deg, $primary 0%,  $secondary 100%);
+}
+
+@mixin transform($value){
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+    transform: $value;
+}
+
+@mixin transform-origin($value){
+    -webkit-transform-origin: $value;
+    -moz-transform-origin: $value;
+    -ms-transform-origin: $value;
+    -o-transform-origin: $value;
+    transform-origin: $value;
+}
+
+@mixin translate($x, $y, $z) {
+    -webkit-transform: translate3d($x, $y, $z);
+    -moz-transform: translate3d($x, $y, $z);
+    -ms-transform: translate3d($x, $y, $z);
+    -o-transform: translate3d($x, $y, $z);
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin userSelect($value){
+    -webkit-touch-callout: $value;
+    -webkit-user-select: $value;
+    -khtml-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    user-select: $value;
+}
+
+@mixin overlayFull($position, $zIndex : 1, $top : 0, $right : 0, $bottom : 0, $left : 0){
+    position: $position;
+    z-index: $zIndex;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin inputPlaceholder($color, $fontFamily: "inherit", $opacity: 1){
+    &.placeholder{
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+    &::-webkit-input-placeholder{
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+    &::-moz-placeholder{
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+    &:-moz-placeholder{
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+    &:-ms-input-placeholder { 
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+    &::-ms-input-placeholder {
+        color: $color;
+        font-family: #{$fontFamily};
+        opacity: $opacity;
+    }
+}
