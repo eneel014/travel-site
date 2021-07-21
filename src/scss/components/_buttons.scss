@@ -1,0 +1,10 @@
+.button {
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &--dark {
+        color: getColor(1);
+        @include linearGradient(0deg, getColor(1,11), getColor(2,11));
+    }
+}

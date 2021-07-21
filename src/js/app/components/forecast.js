@@ -3,16 +3,34 @@ import _ from 'underscore';
 
 class Forecast {
 
-  constructor() {
+    constructor() {
 
-    this.id = _.uniqueId('cid');
-    this.apiKey = '0037a205884c254c3fe1eb531093170a';
-    this.apiURL = 'https://api.openweathermap.org/data/2.5/forecast';
-  }
-  init() {
+        this.id = _.uniqueId('cid');
+        this.apiKey = '0037a205884c254c3fe1eb531093170a';
+        this.apiURL = 'https://api.openweathermap.org/data/2.5/forecast';
+    }
+    init() {
+            var _this = this;
+
+            _this.getForecast($('#txt-location').val());
+
+            $('#btn-submit-loc').on('click', function() {
+                if($('#txt-location').val() != '') {
+                    $('#forecast-container').html('');
+                    _this.getForecast($('#txt-location').val());
+                }
+            });
+
+            $('#txt-location').on('keyup', function(e) {
+                if (e.keyCode == 13) {
+                    $('#btn-submit-loc').click();
+                }
+            });
+    }
+
+    getForecast(thisLocation) {
         var _this = this;
-
-        $.get( this.apiURL + "?q=London" + "&appid=" + this.apiKey, function(data) {
+        $.get( this.apiURL + "?q=" + thisLocation + "&appid=" + this.apiKey, function(data) {
             console.dir(data);
             var thisHTML = '';
             var thisCurrentDay = 0;
@@ -72,25 +90,25 @@ class Forecast {
             console.log("ERROR");
             console.log(data);
         });
-  }
+    }
 
-  getFullDay(d) {
-      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    getFullDay(d) {
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-      return days[d];
-  }
+        return days[d];
+    }
 
-  getOrdinal(n) {
-      return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
-  }
+    getOrdinal(n) {
+        return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+    }
 
-  getCelcius(x) {
-    return Math.round(x-273.15);
-  }
+    getCelcius(x) {
+        return Math.round(x-273.15);
+    }
 
-  getFahrenheit(x) {
-      return Math.round(((x-273.15)*1.8)+32);
-  }
+    getFahrenheit(x) {
+        return Math.round(((x-273.15)*1.8)+32);
+    }
 
 
 }

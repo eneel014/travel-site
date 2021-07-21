@@ -41,10 +41,19 @@ ol {
 .section__container {
     max-width: 740px;
     margin: 0 auto;
+
+    @media (max-width: 767px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .flex {
     display: flex;
+
+    @media (max-width: 767px) {
+        flex-wrap: wrap;
+    }
 
     &--space-between {
         justify-content: space-between;

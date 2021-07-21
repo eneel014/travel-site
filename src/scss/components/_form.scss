@@ -1,0 +1,30 @@
+.form {
+    &--center {
+        max-width: 320px;
+        margin: 20px auto;
+    }
+
+    input {
+        border: 0;
+        border-radius: 3px;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: getColor(3, 1);
+    }
+
+    .input--group {
+        display: flex;
+        input {
+            width: 80%;
+        }
+        .button {
+            width: 20%;
+        }
+        *:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        *:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+    }
+}
